@@ -1,3 +1,4 @@
+from copy import deepcopy as dc
 
 def populare(studenti):
 
@@ -5,7 +6,6 @@ def populare(studenti):
         def __init__(self,numeZiar,timpZiar):
             self.numeZiar = numeZiar
             self.timpZiar = timpZiar
-            self.citit=0            #0 neatins 1 in citire 2 terminat
             self.start=0
         def afisare(self):
             print ("Nume ziar: {} Timp Ziar: {}".format(self.numeZiar,self.timpZiar))
@@ -16,6 +16,7 @@ def populare(studenti):
             self.ora=ora
             self.timp = []
             self.poz = 0
+            self.solutie = []
         def afisare(self):
             print ("Poz: {}  Numele studentului: {}  Ora: {}\n".format(self.poz,self.numeStudent,self.ora))
             for element in self.timp:
@@ -47,24 +48,35 @@ def pot_citi(studenti,citeste,minut):
             citeste[student.poz] = 1
 
 def alg():
-    pass
+    return 0
+
+def test(studenti,solutie):
+    timp = 0
+    ziare=[0,0,0,0]
+    cs=0
+    while cs != 4:
+        cs=0
+        for student in studenti:
+            if len(student.solutie) == 0:
+                cs+=1
+            else:
+                if timp >= student.start:
+                    if ziare[student.solutie[0]] == 0:
+                        ziare[student.solutie[0]]=student.poz
+                        student.timp[student.solutie[0]].start = timp
+                    if student.timp[student.solutie[0]].timpZiar == (timp - student.timp[student.solutie[0]].start) and ziare[student.solutie[0]] == student.poz:
+                        ziare[student.solutie[0]]=0
+                        student.solutie.pop(0)
+            timp+=1
+    return timp
 
 if __name__ == "__main__":
     studenti=[]
-    citeste=[0,0,0,0]
-    ziare=[0,0,0,0]
     populare(studenti)
-    minut=0
     for student in studenti:
         for timp in student.timp:
             timp.afisare()
         print()
-    while True:
-        pot_citi(studenti,citeste,minut)
-        if 1 in citeste:
-            alg()
-        for student in studenti:
-            if citeste[student.poz] == 2:
-                if minut-student.timp[ziare.index(student.poz)].start == student.timp[ziare.index(student.poz)].timpZiar:
-                    student.timp[ziare.index(student.poz)].citire=2
-        minut+=1
+    
+
+
