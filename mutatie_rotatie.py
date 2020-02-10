@@ -100,8 +100,10 @@ if __name__ == "__main__":
     while counter < 5000:
         solutie_t=alg(solutie)
         timp_t=test(studenti,solutie_t)
-        print(timp_t)
+        #print(timp_t)
         if timp_t<timp:
             timp = timp_t
+            solutie_f=solutie_t
         counter+=1
-    print (timp)
+    print ("Cel mai mic timp:{}".format(timp))
+    print (solutie_t)

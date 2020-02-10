@@ -26,12 +26,12 @@ def populare(studenti):
     with open('data','r') as data:
         for lines in data.readlines():
             text=lines.split('  ')
-            stud=student(text.pop(0),text.pop(0))
+            stud=student(text.pop(0),int(text.pop(0)))
             studenti.append(stud)
             for grup in text:
                 vector=grup.split(",")
                 if len(vector)>1:
-                    stud.timp.append(timp(vector.pop(0).rstrip() ,vector.pop().rstrip()))
+                    stud.timp.append(timp(vector.pop(0).rstrip() ,int(vector.pop().rstrip())))
             stud=None
     c=0
     for student in studenti:
@@ -86,16 +86,18 @@ if __name__ == "__main__":
         [3, 0, 1, 2],
         [2, 1, 3, 0]
     ]
-    solutie_t=alg()
     counter = 0
+    timp = test(studenti,solutie)
     while counter < 5000:
         solutie_t=alg(solutie)
         timp_t=test(studenti,solutie_t)
-        print(timp_t)
+        #print(timp_t)
         if timp_t<timp:
             timp = timp_t
+            solutie_f=solutie_t
         counter+=1
-    print (timp)
+    print ("Cel mai mic timp:{}".format(timp))
+    print (solutie_t)
 
 
 
