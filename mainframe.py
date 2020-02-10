@@ -79,7 +79,12 @@ if __name__ == "__main__":
         for timp in student.timp:
             timp.afisare()
         print()
-    solutie=[[],[],[],[]]
+    solutie= [
+        [0, 1, 2, 3],
+        [1, 0, 3, 2],
+        [3, 0, 1, 2],
+        [2, 1, 3, 0]
+    ]
     solutie_t=alg()
     counter = 0
     while counter < 50000:
