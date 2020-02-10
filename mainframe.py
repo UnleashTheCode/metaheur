@@ -51,10 +51,11 @@ def alg():
     return 0
 
 def test(studenti,solutie):
+    solut=dc(solutie)
     for student in studenti:
-        student.solutie=solutie.pop(0)
+        student.solutie=solut.pop(0)
     timp = 0
-    ziare=[0,0,0,0]
+    ziare=[5,5,5,5]
     cs=0
     while cs != 4:
         cs=0
@@ -62,14 +63,14 @@ def test(studenti,solutie):
             if len(student.solutie) == 0:
                 cs+=1
             else:
-                if timp >= student.start:
-                    if ziare[student.solutie[0]] == 0:
+                if timp >= student.ora:
+                    if ziare[student.solutie[0]] == 5:
                         ziare[student.solutie[0]]=student.poz
-                        student.timp[student.solutie[0]].start = timp
-                    if student.timp[student.solutie[0]].timpZiar == (timp - student.timp[student.solutie[0]].start) and ziare[student.solutie[0]] == student.poz:
-                        ziare[student.solutie[0]]=0
+                        student.timp[student.solutie[0]].start = dc(timp)
+                    if (student.timp[student.solutie[0]].timpZiar == (timp - student.timp[student.solutie[0]].start)) and (ziare[student.solutie[0]] == student.poz):
+                        ziare[student.solutie[0]]=5
                         student.solutie.pop(0)
-                timp+=1
+        timp+=1
     return timp
 
 if __name__ == "__main__":
@@ -87,11 +88,13 @@ if __name__ == "__main__":
     ]
     solutie_t=alg()
     counter = 0
-    while counter < 50000:
-        timp = test(studenti,solutie)
+    while counter < 5000:
+        solutie_t=alg(solutie)
         timp_t=test(studenti,solutie_t)
+        print(timp_t)
         if timp_t<timp:
             timp = timp_t
+        counter+=1
     print (timp)
 
 
