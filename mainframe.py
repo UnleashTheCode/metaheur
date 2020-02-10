@@ -80,7 +80,14 @@ if __name__ == "__main__":
             timp.afisare()
         print()
     solutie=[[],[],[],[]]
-    timp = test(studenti,solutie)
+    solutie_t=alg()
+    counter = 0
+    while counter < 50000:
+        timp = test(studenti,solutie)
+        timp_t=test(studenti,solutie_t)
+        if timp_t<timp:
+            timp = timp_t
+    print (timp)
 
 
 
