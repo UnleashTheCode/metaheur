@@ -97,7 +97,7 @@ if __name__ == "__main__":
             solutie_f=solutie_t
         counter+=1
     print ("Cel mai mic timp:{}".format(timp))
-    print (solutie_t)
+    print (solutie_f)
 
 
 

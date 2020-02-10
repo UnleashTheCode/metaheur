@@ -92,16 +92,15 @@ if __name__ == "__main__":
     ]
     counter = 0
     timp = test(studenti,solutie)
-    while counter < 5000:
+    while counter < 100:
         solutie_t=hill(solutie)
         timp_t=test(studenti,solutie_t)
-        print(timp_t)
         if timp_t<timp:
             timp = timp_t
             solutie_f=solutie_t
         counter+=1
     print ("Cel mai mic timp:{}".format(timp))
-    print (solutie_t)
+    print (solutie_f)
 
 
 
