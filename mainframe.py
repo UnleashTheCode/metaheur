@@ -47,7 +47,7 @@ def pot_citi(studenti,citeste,minut):
         if student.ora+minut == 0:
             citeste[student.poz] = 1
 
-def alg():
+def alg(solutie):
     return 0
 
 def test(studenti,solutie):
