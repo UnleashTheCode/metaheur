@@ -56,7 +56,7 @@ def alg(solutie):
     seed(time())
     select=random(0,len(solutie)-1)
     solu = dc(solutie)
-    shuffle(solu[select])
+    solu[select].reverse()
     return solu
 
 def test(studenti,solutie):
