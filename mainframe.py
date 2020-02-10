@@ -50,7 +50,7 @@ def pot_citi(studenti,citeste,minut):
 def alg():
     return 0
 
-def test(studenti,solutie):
+def test(studenti):
     timp = 0
     ziare=[0,0,0,0]
     cs=0
