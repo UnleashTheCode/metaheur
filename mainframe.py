@@ -67,7 +67,7 @@ def test(studenti,solutie):
                     if student.timp[student.solutie[0]].timpZiar == (timp - student.timp[student.solutie[0]].start) and ziare[student.solutie[0]] == student.poz:
                         ziare[student.solutie[0]]=0
                         student.solutie.pop(0)
-            timp+=1
+                timp+=1
     return timp
 
 if __name__ == "__main__":
