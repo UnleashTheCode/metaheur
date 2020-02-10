@@ -50,7 +50,9 @@ def pot_citi(studenti,citeste,minut):
 def alg():
     return 0
 
-def test(studenti):
+def test(studenti,solutie):
+    for student in studenti:
+        student.solutie=solutie.pop(0)
     timp = 0
     ziare=[0,0,0,0]
     cs=0
@@ -77,6 +79,8 @@ if __name__ == "__main__":
         for timp in student.timp:
             timp.afisare()
         print()
-    
+    solutie=[[],[],[],[]]
+    timp = test(studenti,solutie)
+
 
 
